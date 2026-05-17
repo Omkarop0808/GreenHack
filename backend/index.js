@@ -113,14 +113,7 @@ const fs = require('fs');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 // Configure multer for file upload
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads/')
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + file.originalname)
-  }
-});
+const storage = multer.memoryStorage();
 
 const upload = multer({ 
   storage: storage,
@@ -141,7 +134,7 @@ app.post(["/upload-product", "/api/upload-product"], upload.single("productImage
     }
 
     // Read the uploaded file
-    const imageBuffer = fs.readFileSync(req.file.path);
+    const imageBuffer = req.file.buffer;
     const base64Image = imageBuffer.toString('base64');
 
     // Initialize the model
