@@ -13,11 +13,11 @@ An AI-powered sustainable shopping assistant that empowers users to make eco-fri
 
 ## 📸 Screenshots
 
-| Dashboard & Tracking | Eco-friendly Maps |
+| Dashboard & Tracking | AI Product Scanner |
 | :---: | :---: |
 | ![Dashboard](frontend/public/demo1.png) | ![Store Finder](frontend/public/demo4.png) |
 
-| AI Product Scanner | Community Feed |
+| Community Feed  |Eco-friendly Maps |
 | :---: | :---: |
 | ![Scanner](frontend/public/demo3.png) | ![Community](frontend/public/demo2.png) |
 
