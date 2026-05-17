@@ -24,7 +24,7 @@ const signupBody = zod.object({
 	lastName: zod.string(),
 	password: zod.string()
 })
-app.post("/api/signup", async (req, res) => {
+app.post(["/signup", "/api/signup"]), async (req, res) => {
     const { success } = signupBody.safeParse(req.body)
     if (!success) {
         return res.status(411).json({
@@ -68,7 +68,7 @@ const signinBody = zod.object({
     username: zod.string().email(),
 	password: zod.string()
 })
-app.post("/api/signin", async (req, res) => {
+app.post(["/signin", "/api/signin"]), async (req, res) => {
     const { success } = signinBody.safeParse(req.body)
     if (!success) {
         return res.status(411).json({
@@ -104,7 +104,7 @@ app.post("/api/signin", async (req, res) => {
 })
 
 // Routes
-app.use('/api/posts', postRoutes);
+app.use(['/posts', '/api/posts'], postRoutes);
 
 
 
@@ -133,7 +133,7 @@ const upload = multer({
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 // Route to handle product image upload and get structured JSON response
-app.post("/api/upload-product", upload.single("productImage"), async (req, res) => {
+app.post(["/upload-product", "/api/upload-product"]), upload.single("productImage"), async (req, res) => {
   try {
     // Validate file upload
     if (!req.file) {
@@ -251,7 +251,7 @@ app.post("/api/upload-product", upload.single("productImage"), async (req, res) 
 
 
 // Route to save purchase history
-app.post("/api/save-purchase", async (req, res) => {
+app.post(["/save-purchase", "/api/save-purchase"]), async (req, res) => {
   try {
     const { 
       userId, 
@@ -306,7 +306,7 @@ app.post("/api/save-purchase", async (req, res) => {
 });
 
 // Route to get purchase history for a user
-app.get("/api/purchase-history/:userId", async (req, res) => {
+app.get(["/purchase-history/:userId", "/api/purchase-history/:userId"]), async (req, res) => {
   try {
     const { userId } = req.params;
 
@@ -329,7 +329,7 @@ app.get("/api/purchase-history/:userId", async (req, res) => {
 
 // Add this to your backend/index.js file
 
-app.get("/api/leaderboard", async (req, res) => {
+app.get(["/leaderboard", "/api/leaderboard"]), async (req, res) => {
   try {
     // Aggregate eco scores for all users
     const leaderboardResults = await User.aggregate([
@@ -422,4 +422,5 @@ if (process.env.NODE_ENV !== 'production') {
     console.log(`Server is running on port ${PORT}`);
   });
 }
+app.all('*' , (req, res) => res.status(404).json({ error: 'Route not found', path: req.path, originalUrl: req.originalUrl }));
 module.exports = app;
