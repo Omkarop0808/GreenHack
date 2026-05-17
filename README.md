@@ -2,7 +2,8 @@
 
 An AI-powered sustainable shopping assistant that empowers users to make eco-friendly purchasing decisions, calculate carbon footprints, and discover zero-waste stores nearby. 
 
-![Hero Banner](frontend/public/demo6.png)
+![Hero Banner](<img width="1896" height="902" alt="image" src="https://github.com/user-attachments/assets/0229aedd-a299-4289-873d-560c729c11bd" />
+)
 
 ## 🚀 Features
 
