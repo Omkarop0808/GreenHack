@@ -223,7 +223,7 @@ app.post(["/upload-product", "/api/upload-product"], upload.single("productImage
     }
 
     // Delete the temporary uploaded file
-    fs.unlinkSync(req.file.path);
+    // no need to unlink memory buffer
 
     // Send the parsed response
     res.json(parsedResponse);
