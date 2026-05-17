@@ -47,7 +47,7 @@ export default function TransactionHistoryPage() {
       }
 
       try {
-        const response = await axios.get(`/purchase-history/${userId}`);
+        const response = await axios.get(`/api/purchase-history/${userId}`);
         setPurchases(response.data.purchases);
         setLoading(false);
       } catch (error) {

@@ -1,23 +1,13 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "backend/index.js",
-      "use": "@vercel/node"
+  "experimentalServices": {
+    "frontend": {
+      "entrypoint": "frontend",
+      "routePrefix": "/",
+      "framework": "vite"
     },
-    {
-      "src": "frontend/package.json",
-      "use": "@vercel/vite"
+    "backend": {
+      "entrypoint": "backend",
+      "routePrefix": "/api"
     }
-  ],
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/backend/index.js" },
-    { "source": "/signup", "destination": "/backend/index.js" },
-    { "source": "/signin", "destination": "/backend/index.js" },
-    { "source": "/upload-product", "destination": "/backend/index.js" },
-    { "source": "/save-purchase", "destination": "/backend/index.js" },
-    { "source": "/purchase-history/(.*)", "destination": "/backend/index.js" },
-    { "source": "/leaderboard", "destination": "/backend/index.js" },
-    { "source": "/(.*)", "destination": "/frontend/$1" }
-  ]
+  }
 }

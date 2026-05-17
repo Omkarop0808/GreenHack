@@ -24,7 +24,7 @@ const signupBody = zod.object({
 	lastName: zod.string(),
 	password: zod.string()
 })
-app.post("/signup", async (req, res) => {
+app.post("/api/signup", async (req, res) => {
     const { success } = signupBody.safeParse(req.body)
     if (!success) {
         return res.status(411).json({
@@ -68,7 +68,7 @@ const signinBody = zod.object({
     username: zod.string().email(),
 	password: zod.string()
 })
-app.post("/signin", async (req, res) => {
+app.post("/api/signin", async (req, res) => {
     const { success } = signinBody.safeParse(req.body)
     if (!success) {
         return res.status(411).json({
@@ -133,7 +133,7 @@ const upload = multer({
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 // Route to handle product image upload and get structured JSON response
-app.post("/upload-product", upload.single("productImage"), async (req, res) => {
+app.post("/api/upload-product", upload.single("productImage"), async (req, res) => {
   try {
     // Validate file upload
     if (!req.file) {
@@ -251,7 +251,7 @@ app.post("/upload-product", upload.single("productImage"), async (req, res) => {
 
 
 // Route to save purchase history
-app.post('/save-purchase', async (req, res) => {
+app.post("/api/save-purchase", async (req, res) => {
   try {
     const { 
       userId, 
@@ -306,7 +306,7 @@ app.post('/save-purchase', async (req, res) => {
 });
 
 // Route to get purchase history for a user
-app.get('/purchase-history/:userId', async (req, res) => {
+app.get("/api/purchase-history/:userId', async (req, res) => {
   try {
     const { userId } = req.params;
 
@@ -329,7 +329,7 @@ app.get('/purchase-history/:userId', async (req, res) => {
 
 // Add this to your backend/index.js file
 
-app.get("/leaderboard", async (req, res) => {
+app.get("/api/leaderboard", async (req, res) => {
   try {
     // Aggregate eco scores for all users
     const leaderboardResults = await User.aggregate([

@@ -56,7 +56,7 @@ export default function ProductComparisonUI() {
         formData.append('productImage', file);
 
         try {
-            const response = await axios.post('/upload-product', formData, {
+            const response = await axios.post('/api/upload-product', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -97,7 +97,7 @@ export default function ProductComparisonUI() {
             : comparisonData.better_alternative_product;
 
         try {
-            const response = await axios.post('/save-purchase', {
+            const response = await axios.post('/api/save-purchase', {
                 userId,
                 purchased: {
                     product: purchased.product,

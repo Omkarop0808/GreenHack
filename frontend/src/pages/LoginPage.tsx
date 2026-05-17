@@ -24,7 +24,7 @@ export function LoginPage() {
         setIsLoading(true)
 
         try {
-            const response = await axios.post("/signin", {
+            const response = await axios.post('/api/signin', {
                 username: email,
                 password: password
             })
