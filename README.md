@@ -1,7 +1,5 @@
 # GreenHack 🌱
 
-> **2nd Runner-Up at RUBIX'25 Hackathon!** 🏆
-
 An AI-powered sustainable shopping assistant that empowers users to make eco-friendly purchasing decisions, calculate carbon footprints, and discover zero-waste stores nearby. 
 
 ![Hero Banner](frontend/public/demo6.png)
