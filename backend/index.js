@@ -306,7 +306,7 @@ app.post("/api/save-purchase", async (req, res) => {
 });
 
 // Route to get purchase history for a user
-app.get("/api/purchase-history/:userId', async (req, res) => {
+app.get("/api/purchase-history/:userId", async (req, res) => {
   try {
     const { userId } = req.params;
 
