@@ -201,7 +201,7 @@ const Hero = () => {
               <ArrowRight className="w-5 h-5" />
             </motion.a>
             <motion.a
-              href="https://github.com/azlan18"
+              href="https://github.com/Omkarop0808"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 rounded-2xl text-xl font-bold border-2 border-[#151616] hover:bg-[#151616]/5 transition-all duration-200 text-[#151616] shadow-[4px_4px_0px_0px_#D6F32F] flex items-center gap-2"

@@ -30,7 +30,7 @@ const EnvironmentalImpactPage = () => {
           throw new Error("No user ID found")
         }
 
-        const response = await fetch(`http://localhost:3000/purchase-history/${userId}`)
+        const response = await fetch(`/purchase-history/${userId}`)
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)

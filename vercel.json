@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/vite"
+    }
+  ],
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/backend/index.js" },
+    { "source": "/signup", "destination": "/backend/index.js" },
+    { "source": "/signin", "destination": "/backend/index.js" },
+    { "source": "/upload-product", "destination": "/backend/index.js" },
+    { "source": "/save-purchase", "destination": "/backend/index.js" },
+    { "source": "/purchase-history/(.*)", "destination": "/backend/index.js" },
+    { "source": "/leaderboard", "destination": "/backend/index.js" },
+    { "source": "/(.*)", "destination": "/frontend/$1" }
+  ]
+}

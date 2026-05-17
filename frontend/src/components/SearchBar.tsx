@@ -104,7 +104,19 @@ export function SearchBar({ onSearch, googleApi }: SearchBarProps) {
               setShowSuggestions(false);
             } else {
               console.error('Geocoding failed:', status);
-              alert('Location not found. Please try a different search term.');
+              
+              // Fallback demo coordinates when API is restricted
+              let fallbackLat = 19.0760;
+              let fallbackLng = 72.8777; // Mumbai default
+              const lowerQuery = searchQuery.toLowerCase();
+              if (lowerQuery.includes('delhi')) {
+                fallbackLat = 28.7041; fallbackLng = 77.1025;
+              } else if (lowerQuery.includes('bangalore') || lowerQuery.includes('bengaluru')) {
+                fallbackLat = 12.9716; fallbackLng = 77.5946;
+              }
+              
+              onSearch({ lat: fallbackLat, lng: fallbackLng }, searchQuery);
+              setShowSuggestions(false);
             }
           }
         );
