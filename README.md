@@ -2,6 +2,8 @@
 
 An AI-powered sustainable shopping assistant that empowers users to make eco-friendly purchasing decisions, calculate carbon footprints, and discover zero-waste stores nearby. 
 
+<img width="1907" height="902" alt="image" src="https://github.com/user-attachments/assets/2c4bcefe-07b9-460f-b3e5-fa34b8e51a58" />
+
 <img width="1896" height="902" alt="image" src="https://github.com/user-attachments/assets/0229aedd-a299-4289-873d-560c729c11bd" />
 
 ## 🚀 Features
